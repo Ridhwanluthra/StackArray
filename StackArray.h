@@ -72,7 +72,10 @@ class StackArray {
     T peek () const;
 
     // get an item on the specific index
-    T peekindex (const T i) const;
+    T peekindex (const int i) const;
+
+    //changes the value at specific index
+    void change_value_at (const int i, const T value) const;
 
     // check if the stack is empty.
     bool isEmpty () const;
@@ -167,6 +170,20 @@ void StackArray<T>::push (const T i) {
   contents[top++] = i;
 }
 
+// function to change value at a specific index
+void StackArray<T>::change_value_at (const int i, const T value) {
+  // check if the stack is full.
+  if (isFull ())
+    // double size of array.
+    resize (size * 2);
+  
+  if (i >= top) {
+    exit ("STACK: can't change value at index: index does not exist");
+  }
+  // store the item to the array.
+  contents[i] = value;
+}
+
 // pop an item from the stack.
 template<typename T>
 T StackArray<T>::pop () {
@@ -198,7 +215,7 @@ T StackArray<T>::peek () const {
 
 //get an item at specified index
 template<typename T>
-T StackArray<T>::peekindex (const T i)  const{
+T StackArray<T>::peekindex (const int i)  const{
   // check if the stack is empty.
   if (isEmpty ())
     exit ("STACK: can't peek index item from stack: stack is empty.");
