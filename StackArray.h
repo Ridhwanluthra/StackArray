@@ -171,7 +171,8 @@ void StackArray<T>::push (const T i) {
 }
 
 // function to change value at a specific index
-void StackArray<T>::change_value_at (const int i, const T value) {
+template<typename T>
+void StackArray<T>::change_value_at (const int i, const T value) const {
   // check if the stack is full.
   if (isFull ())
     // double size of array.
