@@ -173,11 +173,6 @@ void StackArray<T>::push (const T i) {
 // function to change value at a specific index
 template<typename T>
 void StackArray<T>::change_value_at (const int i, const T value) const {
-  // check if the stack is full.
-  if (isFull ())
-    // double size of array.
-    resize (size * 2);
-  
   if (i >= top) {
     exit ("STACK: can't change value at index: index does not exist");
   }
