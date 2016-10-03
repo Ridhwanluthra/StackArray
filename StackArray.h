@@ -201,7 +201,7 @@ T StackArray<T>::pop () {
 // get an item from the stack.
 template<typename T>
 T StackArray<T>::peek () const {
-  // check if the stack is empty.
+  // check if the stack is empty
   if (isEmpty ())
     exit ("STACK: can't peek item from stack: stack is empty.");
 
